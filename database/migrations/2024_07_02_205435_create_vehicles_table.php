@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('transmission');
             $table->string('description');
             $table->float('value', 8, 2);
+            $table->string('image')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

@@ -19,6 +19,7 @@ class Vehicle extends Model
         'transmission',
         'description',
         'value',
+        'image',
         'active'
     ];
 }
