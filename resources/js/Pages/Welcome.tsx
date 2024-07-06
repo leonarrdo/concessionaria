@@ -42,7 +42,7 @@ export default function Dashboard({ auth}: PageProps) {
                                 <div className="h-20 rounded-b-lg bg-white shadow md:shadow-lg">
                                     <div className="grid lg:grid-cols-1">
                                         <h3 className="font-bold line-clamp-1 text-center">{vehicle.manufacturer_name} - {vehicle.name}</h3>
-                                        <p className="line-clamp-1 text-center">{vehicle.year} - {vehicle.odometer}KM </p>
+                                        <p className="line-clamp-1 text-center">{vehicle.year} - <NumericFormat  value={vehicle.odometer} suffix='KM' thousandSeparator="." decimalSeparator="," displayType={'text'}/></p>
                                         <NumericFormat className='font-bold line-clamp-1 text-center' value={vehicle.value} thousandSeparator="." decimalSeparator="," prefix={'R$'} displayType={'text'}/>
                                     </div>
                                 </div>
