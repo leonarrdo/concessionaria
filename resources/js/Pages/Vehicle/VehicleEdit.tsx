@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import VehicleForm from '@/Components/VehicleForm';
 import VehicleInsert from './VehicleInsert';
 import VehicleFormEdit from '@/Components/VehicleFormEdit';
+import { Head } from '@inertiajs/react';
 
 export default function VehicleEditPage({ auth }: PageProps) {
     const [vehicles, setVehicles] = useState<Array<Vehicle>>([]);
@@ -32,7 +33,7 @@ export default function VehicleEditPage({ auth }: PageProps) {
             user={auth.user}
             header={<h2 className="font-bold text-xl leading-tight">Veículos</h2>}
         >
-            
+            <Head title="Editar" />
             <ToastContainer
                 position="top-right"
                 autoClose={5000}

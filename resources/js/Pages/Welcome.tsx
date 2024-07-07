@@ -30,6 +30,7 @@ export default function WelcomePage({ auth}: PageProps) {
             user={auth.user}
             header={<h2 className="font-bold text-xl leading-tight">Veículos</h2>}
         >
+            <Head title="Home" />
             <div className="container mx-auto py-8 px-8">
                 {vehicles.length === 0 ? (
                     <div className="flex justify-center items-center h-96">

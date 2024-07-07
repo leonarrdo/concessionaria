@@ -5,6 +5,7 @@ import { NumericFormat } from 'react-number-format';
 import { PageProps } from '@/types';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Head } from '@inertiajs/react';
 
 export default function VehicleDelete({ auth }: PageProps) {
     const vehicleImagePath = "http://localhost/vehicles/";
@@ -43,7 +44,7 @@ export default function VehicleDelete({ auth }: PageProps) {
             user={auth.user}
             header={<h2 className="font-bold text-xl leading-tight">Veículos</h2>}
         >
-            
+            <Head title="Deletar" />
             <ToastContainer
                 position="top-right"
                 autoClose={5000}

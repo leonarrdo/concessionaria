@@ -17,4 +17,6 @@ class VehicleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    
 }

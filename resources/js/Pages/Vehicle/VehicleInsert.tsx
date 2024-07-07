@@ -10,7 +10,7 @@ export default function VehicleInsert({ auth }: PageProps) {
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Cadastro de Veículos</h2>}
         >
             <div>
-                <Head title="Dashboard" />
+                <Head title="Inserir" />
                 <div>
                     <VehicleForm>
                     </VehicleForm>
