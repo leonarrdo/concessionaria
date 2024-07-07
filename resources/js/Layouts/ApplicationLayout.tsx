@@ -28,7 +28,10 @@ export default function ApplicationLayout({ user, header, children }: PropsWithC
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink href={route('vehicle.insert')} active={route().current('vehicle.insert')}>
-                                    <p className="font-bold text-black">Inserir Veículo</p>
+                                    <p className="font-bold text-black">Inserir Veículos</p>
+                                </NavLink>
+                                <NavLink href={route('vehicle.delete')} active={route().current('vehicle.delete')}>
+                                    <p className="font-bold text-black">Deletar Veículos</p>
                                 </NavLink>
                             </div>
                         </div>

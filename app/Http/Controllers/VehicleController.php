@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DestroyVehicleRequest;
 use App\Http\Requests\StoreVehicleRequest;
 use App\Http\Requests\UpdateVehicleRequest;
 use App\Models\Manufacturer;
@@ -80,8 +81,16 @@ class VehicleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy($id)
     {
-        //
+        try {
+            $vehicle = Vehicle::findOrFail($id);
+            $vehicle->active = false;
+            $vehicle->save();
+
+            return response()->json(['message' => 'Veículo deletado com sucesso!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao deletar veículo'], 500);
+        }
     }
 }

@@ -76,7 +76,7 @@ function VehicleForm() {
 
       <FormProvider {...formMethods}>
         <form
-          className="p-6 max-w-3xl border content-center bg-green-200 border-gray-200 rounded mx-auto"
+          className="p-6 max-w-3xl border content-center border-gray-500 shadow rounded mx-auto"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="block">
