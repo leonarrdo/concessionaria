@@ -38,9 +38,17 @@ Route::prefix('vehicle')->middleware(['auth', 'verified'])->group(function () {
         ]);
     })->name('vehicle.delete');
 
-    Route::post('/insert', [VehicleController::class, 'store'])->name('vehicle.store');
+    Route::get('/edit', function () {
+        return Inertia::render('Vehicle/VehicleEdit', [
+        ]);
+    })->name('vehicle.edit');
 
+    Route::get('/{id}', [VehicleController::class, 'show']);
+
+    Route::post('/insert', [VehicleController::class, 'store'])->name('vehicle.store');
     Route::post('/delete/{id}', [VehicleController::class, 'destroy']);
+
+    Route::post('/edicao', [VehicleController::class, 'update']);
 });
 
 Route::prefix('vehicle')->get('/', [VehicleController::class, 'index']);

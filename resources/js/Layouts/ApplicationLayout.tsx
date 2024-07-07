@@ -30,6 +30,9 @@ export default function ApplicationLayout({ user, header, children }: PropsWithC
                                 <NavLink href={route('vehicle.insert')} active={route().current('vehicle.insert')}>
                                     <p className="font-bold text-black">Inserir Veículos</p>
                                 </NavLink>
+                                <NavLink href={route('vehicle.edit')} active={route().current('vehicle.edit')}>
+                                    <p className="font-bold text-black">Editar Veículos</p>
+                                </NavLink>
                                 <NavLink href={route('vehicle.delete')} active={route().current('vehicle.delete')}>
                                     <p className="font-bold text-black">Deletar Veículos</p>
                                 </NavLink>

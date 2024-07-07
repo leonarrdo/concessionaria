@@ -11,7 +11,7 @@ class UpdateVehicleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateVehicleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'manufacturer_id'   => 'required|string|max:255',
+            'name'              => 'required|string|max:255',
+            'value'             => 'required|numeric',
+            'odometer'          => 'required|numeric',
+            'year'              => 'required|numeric|min:1900|max:' . date('Y'),
         ];
     }
 }

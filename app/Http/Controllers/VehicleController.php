@@ -57,9 +57,9 @@ class VehicleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vehicle $vehicle)
+    public function show($id)
     {
-        //
+        return Vehicle::find($id);
     }
 
     /**
@@ -73,9 +73,28 @@ class VehicleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateVehicleRequest $request, Vehicle $vehicle)
+    public function update(UpdateVehicleRequest $request)
     {
-        //
+        try {
+
+            $vehicle                    = Vehicle::findOrFail($request->id);
+            $vehicle->manufacturer_id   = $request->manufacturer_id;
+            $vehicle->name              = $request->name;
+            $vehicle->value             = $request->value;
+            $vehicle->odometer          = $request->odometer;
+            $vehicle->year              = $request->year;
+
+            if ($request->hasFile('file')) {
+                $vehicle->image = Storage::disk('vehicles')->putFile($request->file);
+            }
+
+            $vehicle->save();
+
+            return response()->json(['message' => 'Veículo editado com sucesso!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao editar veículo', $e->getMessage()], 500);
+        }
+        
     }
 
     /**
