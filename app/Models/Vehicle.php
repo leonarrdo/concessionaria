@@ -12,13 +12,9 @@ class Vehicle extends Model
     protected $fillable = [
         'manufacturer_id',
         'name',
-        'model',
         'year',
-        'color',
-        'odometer',
-        'transmission',
-        'description',
         'value',
+        'odometer',
         'image',
         'active'
     ];

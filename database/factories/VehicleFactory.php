@@ -20,13 +20,10 @@ class VehicleFactory extends Factory
         return [
             'manufacturer_id'   => $this->faker->numberBetween(1, Manufacturer::count()),
             'name'              => $this->faker->text(20),
-            'model'             => $this->faker->text(30),
             'year'              => $this->faker->numberBetween(1995, 2024),
-            'color'             => $this->faker->colorName(),
             'odometer'          => $this->faker->numberBetween(1, 400000),
-            'transmission'      => $this->faker->text(20),
-            'description'       => $this->faker->realTextBetween(10, 60),
             'value'             => $this->faker->randomFloat(2, 1, 2000),
+            'value'             => 'https://via.placeholder.com/500',
             'active'            => $this->faker->boolean(50),
         ];
     }

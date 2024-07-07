@@ -22,7 +22,12 @@ class StoreVehicleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'manufacturer'  => 'required|string|max:255',
+            'name'          => 'required|string|max:255',
+            'value'         => 'required|numeric',
+            'odometer'      => 'required|numeric',
+            'year'          => 'required|numeric|min:1900|max:' . date('Y'),
+            'file'          => 'required|file|mimes:jpg,png,jpeg|max:2048',
         ];
     }
 }

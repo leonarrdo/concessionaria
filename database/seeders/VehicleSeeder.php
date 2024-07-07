@@ -17,52 +17,40 @@ class VehicleSeeder extends Seeder
         Vehicle::factory()->create([
             'manufacturer_id'   => Manufacturer::find(3)->id,
             'name'              => 'Focus',
-            'model'             => 'Ghia',
             'year'              => '2006',
-            'color'             => 'Prata',
             'odometer'          => '135000',
-            'transmission'      => 'Manual',
-            'description'       => 'Carro com manutenções em dias.',
             'value'             => '24000',
+            'image'             => 'IJR1RcfjTPjWTWmTlQfXLHv07LgXcMVmLAj2QTCm.jpg',
             'active'            =>  true,
         ]);
 
         Vehicle::factory()->create([
             'manufacturer_id'   => Manufacturer::find(1)->id,
             'name'              => 'Corolla',
-            'model'             => 'Altis',
             'year'              => '2024',
-            'color'             => 'Prata',
             'odometer'          => '120000',
-            'transmission'      => 'Manual',
-            'description'       => 'Conforto, qualidade e segurança.',
             'value'             => '191000',
+            'image'             => 'pCaobNpPAjOtumJyrzR5AG2p2obdqyEPMIPG39mS.jpg',
             'active'            =>  true,
         ]);
 
         Vehicle::factory()->create([
             'manufacturer_id'   => Manufacturer::find(7)->id,
             'name'              => 'Uno',
-            'model'             => 'Mille Way Economy',
             'year'              => '2012',
-            'color'             => 'Prata',
             'odometer'          => '120000',
-            'transmission'      => 'Manual',
-            'description'       => 'Carro em excelente estado de conservação.',
             'value'             => '29000',
+            'image'             => 'UwOtFRwVyGv7P41Q9DYHJsAi7oKKOWvL9Q4jTqGY.jpg',
             'active'            =>  true,
         ]);
 
         Vehicle::factory()->create([
             'manufacturer_id'   => Manufacturer::find(8)->id,
             'name'              => 'M4',
-            'model'             => 'Motorsport',
             'year'              => '2015',
-            'color'             => 'Azul',
             'odometer'          => '72000',
-            'transmission'      => 'Manual',
-            'description'       => 'Esportivo de respeito.',
             'value'             => '399000',
+            'image'             => 'uLHlodLEoATTFOSVazUw3UZz97FRYqsn8bBDNBhY.jpg',
             'active'            =>  true,
         ]);
     }

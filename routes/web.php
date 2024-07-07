@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
@@ -25,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('vehicle')->middleware(['auth', 'verified'])->controller(VehicleController::class)->group(function () {
+Route::prefix('vehicle')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/insert', function () {
         return Inertia::render('Vehicle/VehicleInsert', [
         ]);
@@ -34,6 +35,10 @@ Route::prefix('vehicle')->middleware(['auth', 'verified'])->controller(VehicleCo
     Route::get('/', [VehicleController::class, 'index']);
 
     Route::post('/insert', [VehicleController::class, 'store'])->name('vehicle.store');
+});
+
+Route::prefix('manufacturer')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', [ManufacturerController::class, 'index']);
 });
 
 require __DIR__.'/auth.php';

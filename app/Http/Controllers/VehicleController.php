@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVehicleRequest;
 use App\Http\Requests\UpdateVehicleRequest;
+use App\Models\Manufacturer;
 use App\Models\Vehicle;
+use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,22 +39,18 @@ class VehicleController extends Controller
     public function store(StoreVehicleRequest $request)
     {
 
-        // $vehicle                    = new Vehicle();
-        // $vehicle->manufacturer_id   = $request->manufacturer;
-        // $vehicle->name              = $request->name;
-        // $vehicle->model             = $request->model;
-        // $vehicle->year              = $request->year;
-        // $vehicle->color             = $request->color;
-        // $vehicle->odometer          = '';
-        // $vehicle->transmission      = '';
-        // $vehicle->description       = $request->description;
-        // $vehicle->value             = $request->value;
-        $image             = Storage::disk('vehicles')->putFile($request->file);
-        // $vehicle->save();
+        $manufacturer = Manufacturer::find($request->manufacturer);
 
-        return [
-            $image
-        ];
+        $vehicle                    = new Vehicle();
+        $vehicle->manufacturer_id   = $manufacturer->id;
+        $vehicle->name              = $request->name;
+        $vehicle->year              = $request->year;
+        $vehicle->odometer          = $request->odometer;
+        $vehicle->value             = $request->value;
+        $vehicle->image             = Storage::disk('vehicles')->putFile($request->file);
+        $vehicle->save();
+
+        return response()->json(['message' => 'Veículo cadastrado com sucesso!'], 201);
     }
 
     /**

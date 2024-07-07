@@ -12,12 +12,9 @@ class ManufacturerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(StoreManufacturerRequest $request)
+    public function index()
     {
-        return [
-            'name' => $request['files'][0]->getClientOriginalName(),
-            'hash' => $request['files'][0]->hashName()
-        ];
+        return Manufacturer::where("active", true)->get();
     }
 
     /**

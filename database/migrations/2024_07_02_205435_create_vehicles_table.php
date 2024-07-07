@@ -16,12 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('manufacturer_id');
             $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
             $table->string('name');
-            $table->string('model');
-            $table->integer('year');
-            $table->string('color');
-            $table->integer('odometer');
-            $table->string('transmission');
-            $table->string('description');
+            $table->string('year');
+            $table->string('odometer');
             $table->float('value', 8, 2);
             $table->string('image')->nullable();
             $table->boolean('active')->default(true);
