@@ -27,15 +27,16 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('vehicle')->middleware(['auth', 'verified'])->group(function () {
+
     Route::get('/insert', function () {
         return Inertia::render('Vehicle/VehicleInsert', [
         ]);
     })->name('vehicle.insert');
 
-    Route::get('/', [VehicleController::class, 'index']);
-
     Route::post('/insert', [VehicleController::class, 'store'])->name('vehicle.store');
 });
+
+Route::prefix('vehicle')->get('/', [VehicleController::class, 'index']);
 
 Route::prefix('manufacturer')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [ManufacturerController::class, 'index']);

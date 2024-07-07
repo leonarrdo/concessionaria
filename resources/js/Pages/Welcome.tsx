@@ -4,8 +4,9 @@ import { Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import ApplicationLayout from '@/Layouts/ApplicationLayout';
 
-export default function Dashboard({ auth}: PageProps) {
+export default function WelcomePage({ auth}: PageProps) {
 
     const vehicleImagePath = "http://localhost/vehicles/";
     const [vehicles, setVehicles] = useState(Array<Vehicle>);
@@ -26,12 +27,11 @@ export default function Dashboard({ auth}: PageProps) {
     }
 
     return (
-        <AuthenticatedLayout
+        <ApplicationLayout
             user={auth.user}
             header={<h2 className="font-bold text-xl leading-tight">Veículos</h2>}
         >
-            <Head title="Dashboard" />
-                <div className="container mx-auto py-8 px-8">
+            <div className="container mx-auto py-8 px-8">
                     <div className="grid lg:grid-cols-4 gap-4 mx-auto">
                         {vehicles.map(vehicle => (
                             <button className="container h-72 rounded-lg border" key={vehicle.id}>
@@ -50,6 +50,6 @@ export default function Dashboard({ auth}: PageProps) {
                         ))}
                     </div>
                 </div>
-        </AuthenticatedLayout>
+        </ApplicationLayout>
     );
 }
